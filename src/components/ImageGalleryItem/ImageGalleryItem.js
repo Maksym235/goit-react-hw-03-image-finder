@@ -4,9 +4,12 @@ import {
   ImageGalleryItemImage,
 } from './ImageGalleryItem.styled';
 
-export function ImageGalleryItem({ img: { id, webformatURL } }) {
+export function ImageGalleryItem({
+  img: { id, webformatURL, largeImageURL },
+  onClick,
+}) {
   return (
-    <ImageGalleryItemSt key={id}>
+    <ImageGalleryItemSt onClick={() => onClick(largeImageURL)} key={id}>
       <ImageGalleryItemImage src={webformatURL} alt="id" />
     </ImageGalleryItemSt>
   );

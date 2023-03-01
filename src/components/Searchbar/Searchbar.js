@@ -30,11 +30,13 @@ export class Searchbar extends React.Component {
     }
     this.props.onSubmit(this.state.imgName);
     this.setState({ imgName: '' });
+    evt.target.reset();
   };
 
   onHandelChange = evt => {
     this.setState({ imgName: evt.currentTarget.value.toLowerCase() });
   };
+
   render() {
     return (
       <SearchbarSt className="searchbar">

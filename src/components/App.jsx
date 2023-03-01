@@ -21,21 +21,7 @@ export class App extends Component {
       <>
         <Searchbar onSubmit={this.handlerSubmit} />
         <ImageGallery imgName={this.state.imgName} />
-
-        <ToastContainer
-          position="top-center"
-          autoClose={3000}
-          hideProgressBar={false}
-          newestOnTop={false}
-          closeOnClick
-          rtl={false}
-          pauseOnFocusLoss
-          draggable
-          pauseOnHover
-          theme="light"
-        />
-
-        <ToastContainer />
+        <ToastContainer position="top-center" autoClose={3000} />
       </>
     );
   }
