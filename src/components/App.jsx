@@ -8,10 +8,7 @@ import 'react-toastify/dist/ReactToastify.css';
 export class App extends Component {
   state = {
     imgName: '',
-    isLoad: false,
   };
-
-  componentDidUpdate() {}
 
   handlerSubmit = imgName => {
     this.setState({ imgName });
