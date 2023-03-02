@@ -43,7 +43,7 @@ export class ImageGallery extends React.Component {
         console.log(response);
         this.setState(prevState => ({
           images: [...prevState.images, ...data],
-          showLoadMore: page < Math.ceil(data / 12),
+          showLoadMore: page < Math.ceil(response.data.totalHits / 12),
         }));
       })
       .catch(error =>
