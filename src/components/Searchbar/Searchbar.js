@@ -14,8 +14,9 @@ export class Searchbar extends React.Component {
   };
 
   onHandelSubmit = evt => {
+    const { imgName } = this.state;
     evt.preventDefault();
-    if (this.state.imgName.trim() === '') {
+    if (imgName.trim() === '') {
       toast.warn('enter image name', {
         position: 'top-center',
         autoClose: 3000,
@@ -28,7 +29,7 @@ export class Searchbar extends React.Component {
       });
       return;
     }
-    this.props.onSubmit(this.state.imgName);
+    this.props.onSubmit(imgName);
     this.setState({ imgName: '' });
     evt.target.reset();
   };

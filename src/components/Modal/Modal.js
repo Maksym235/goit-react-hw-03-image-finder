@@ -20,8 +20,6 @@ export class Modal extends React.Component {
   };
 
   clickToOverlay = evt => {
-    console.log(evt.currentTarget);
-    console.log(evt.target);
     if (evt.currentTarget === evt.target) {
       this.props.onClose();
     }

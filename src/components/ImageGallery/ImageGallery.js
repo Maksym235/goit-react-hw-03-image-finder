@@ -20,8 +20,16 @@ export class ImageGallery extends React.Component {
   componentDidUpdate(prevProps, prevState) {
     const { imgName } = this.props;
     const { page } = this.state;
+
+    if (prevProps.imgName !== imgName) {
+      this.setState({
+        images: [],
+      });
+    }
     if (prevProps.imgName !== imgName || prevState.page !== page) {
-      this.setState({ status: 'pending' });
+      this.setState({
+        status: 'pending',
+      });
       this.getApi();
     }
   }
@@ -31,11 +39,11 @@ export class ImageGallery extends React.Component {
     const { imgName } = this.props;
     return GetApi(imgName, page)
       .then(response => {
+        const data = response.data.hits;
         console.log(response);
         this.setState(prevState => ({
-          images: [...prevState.images, ...response.data.hits],
-          showLoadMore:
-            this.state.page < Math.ceil(response.data.totalHits / 12),
+          images: [...prevState.images, ...data],
+          showLoadMore: page < Math.ceil(data / 12),
         }));
       })
       .catch(error =>
