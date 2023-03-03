@@ -4,7 +4,6 @@ const BASE_URL = 'https://pixabay.com/api/';
 const KEY = '32809248-e617eb740123e44583fb94c77';
 
 export function GetApi(imgName, page) {
-  console.log(imgName, page);
   const options = {
     params: {
       key: KEY,

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Children } from 'react';
 import { createPortal } from 'react-dom';
 import { ModalWindow, Overlay } from './Modal.styled';
 
@@ -20,17 +20,15 @@ export class Modal extends React.Component {
   };
 
   clickToOverlay = evt => {
-    if (evt.currentTarget === evt.target) {
+    if (evt.currentTarget !== evt.target) {
       this.props.onClose();
     }
   };
   render() {
-    const { url } = this.props;
+    const { children } = this.props;
     return createPortal(
       <Overlay onClick={this.clickToOverlay}>
-        <ModalWindow>
-          <img src={url} alt="largeImg" width="800" height="600" />
-        </ModalWindow>
+        <ModalWindow>{children}</ModalWindow>
       </Overlay>,
       modalRoot
     );
