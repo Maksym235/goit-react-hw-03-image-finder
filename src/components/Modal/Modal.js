@@ -1,4 +1,4 @@
-import React, { Children } from 'react';
+import React from 'react';
 import { createPortal } from 'react-dom';
 import { ModalWindow, Overlay } from './Modal.styled';
 
@@ -25,10 +25,9 @@ export class Modal extends React.Component {
     }
   };
   render() {
-    const { children } = this.props;
     return createPortal(
       <Overlay onClick={this.clickToOverlay}>
-        <ModalWindow>{children}</ModalWindow>
+        <ModalWindow>{this.props.children}</ModalWindow>
       </Overlay>,
       modalRoot
     );
